@@ -1,0 +1,51 @@
+Create an conference based on the sent information
+---
+tags:
+  - conference
+parameters:
+  - name: name
+    in: query
+    schema:
+      type: string
+      description: short name of the conference room(not full MUC address).
+  - name: start_time
+    in: query
+    schema:
+      type: string
+      description: conference start date and time.
+  - name: mail_owner
+    in: query
+    schema:
+      type: string
+      description: if authentication system is enabled this field will contain user's identity. It that case it will not be possible to create new conference room without authenticating.
+responses:
+  200:
+    description: Conference created successfully
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        mail_owner:
+          type: string
+        start_time:
+          type: string
+        duration:
+          type: integer
+      example:
+        id: 364758328
+        name: "conference1234"
+        mail_owner: "user@server.com"
+        start_time: "2048-04-20T17:55:12.000Z"
+        duration: 900000
+  409:
+    description: Conference already exists
+    schema:
+      type: object
+      properties:
+        conflict_id:
+          type: integer
+      example:
+        conflict_id: 364758328

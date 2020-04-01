@@ -1,0 +1,19 @@
+Delete an conference information based on its id
+---
+tags:
+  - conference
+parameters:
+  - name: conference_id
+    in: path
+    type: string
+    description: existing conference id
+responses:
+  200:
+    description: The conference's information were successfully deleted
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: "conference deleted successfully"

@@ -1,0 +1,31 @@
+Return an conference information based on its id
+---
+tags:
+  - conference
+parameters:
+  - name: conference_id
+    in: path
+    type: string
+    description: exisitng conference id
+responses:
+  200:
+    description: The conference's information were successfully retrieved
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        mail_owner:
+          type: string
+        start_time:
+          type: string
+        duration:
+          type: integer
+      example:
+        id: 364758328
+        name: "conference1234"
+        mail_owner: "user@server.com"
+        start_time: "2048-04-20T17:55:12.000Z"
+        duration: 900000
